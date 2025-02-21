@@ -1,5 +1,6 @@
 import requests
 from data import KantakOqish2,Videooqish,SMMoqish,Moboqish,Bugolteroqish,UserCheckadd,userscheck
+import time 
 
 url = "https://sheetdb.io/api/v1/wa33txehgmlyx"
 
@@ -26,4 +27,4 @@ def QoshishSheets():
             else:
                 UserCheckadd(i[0])
                 response = requests.post(url, json=data)
-
+        time.sleep(86400)
