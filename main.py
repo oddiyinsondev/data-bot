@@ -93,7 +93,7 @@ async def process_contact(message: Message):
         await message.answer(text, disable_web_page_preview=True, reply_markup=buttons_inlane(li=invite_link.invite_link))
         await message.answer("Asosiy menyudasiz", reply_markup=Menyu)
     elif message.text == "Mobilografiya":
-        if not MobQosh(user_id=user_id):
+        if not Moboqish(user_id=user_id):
             MobQosh(user_id=user_id, name=message.text)
         chat = await bot.get_chat(mblografiya)
         invite_link = await bot.create_chat_invite_link(chat_id=chat.id, member_limit=1)

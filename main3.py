@@ -11,6 +11,7 @@ from buttons import keyboard, guruhlar, buttons_inlane
 import time
 import requests
 
+from sheets import QoshishSheets
 # Telegram bot kanallari
 smm1 = -1002264165151
 mblografiya = -1002405625404
@@ -137,4 +138,5 @@ async def main():
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
+    QoshishSheets()
     asyncio.run(main())

@@ -1,6 +1,17 @@
 import sqlite3
 
 
+# def create_database11():
+#     conn = sqlite3.connect('users.db')
+#     cursor = conn.cursor()
+#     cursor.execute('''
+#     CREATE TABLE IF NOT EXISTS users_check (
+#         user_id INTEGER PRIMARY KEY
+#     )
+#     ''')
+#     conn.commit()
+#     conn.close()
+
 def create_database():
     conn = sqlite3.connect('users.db')
     cursor = conn.cursor()
@@ -16,6 +27,17 @@ def create_database():
     conn.close()
 
 
+def UserCheckadd(user_id):
+    conn = sqlite3.connect('users.db')
+    cursor = conn.cursor()
+    
+    cursor.execute('''
+    INSERT OR REPLACE INTO users_check (user_id) 
+    VALUES (?)
+    ''', (user_id,))
+    conn.commit()
+    conn.close()
+
 def KantakQosh(user_id, username, fullname, contact):
     conn = sqlite3.connect('users.db')
     cursor = conn.cursor()
@@ -26,6 +48,23 @@ def KantakQosh(user_id, username, fullname, contact):
     ''', (user_id, username, fullname, contact))
     conn.commit()
     conn.close()
+
+def KantakOqish2():
+    conn = sqlite3.connect('users.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM users")
+    malumot = cursor.fetchall()
+    conn.close()
+    return malumot
+
+def userscheck(user_id):
+    conn = sqlite3.connect('users.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM users_check WHERE user_id=?", (user_id,))
+    malumot = cursor.fetchone()
+    conn.close()
+    return malumot
+
 
 def KantakOqish1(user_id):
     conn = sqlite3.connect('users.db')
